@@ -1,32 +1,40 @@
 var express = require('express');
 var router = express.Router();
 var guessArray = [];
-
-// var x = 1;
-// var y = 3;
-
-// var add = x+y;
-
-// router.get('/', function(req, res){
-//     console.log('this is working');
-//     res.send({add});  
-    
-// });
+var addedNumbers = [];
 
 router.post('/addition', function(req, res){
     guessArray = req.body.numbers;
     console.log('guessArray', guessArray);
-    
-    // var numberArray = req.body.numbers;
-    // var addedNumbers = 0;
-    // addedNumbers = numberArray[0] + numberArray[1];
+    addedNumbers = [Number(guessArray[0])+Number(guessArray[1])];
     res.sendStatus(200);
 });//end addition
 
+router.post('/subtraction', function(req, res){
+    guessArray = req.body.numbers;
+    console.log('guessArray', guessArray);
+    addedNumbers = [Number(guessArray[0])-Number(guessArray[1])];
+    res.sendStatus(200);
+});//end subtraction
+
+router.post('/multiplication', function(req, res){
+    guessArray = req.body.numbers;
+    console.log('guessArray', guessArray);
+    addedNumbers = [Number(guessArray[0])*Number(guessArray[1])];
+    res.sendStatus(200);
+});//end multiply
+
+router.post('/division', function(req, res){
+    guessArray = req.body.numbers;
+    console.log('guessArray', guessArray);
+    addedNumbers = [Number(guessArray[0])/Number(guessArray[1])];
+    res.sendStatus(200);
+});//end multiply
 
 router.get('/addition', function(req,res){
-    console.log(guessArray);
-    res.send(guessArray);
+    console.log(addedNumbers);
+    res.send(addedNumbers);
 })
+
 
 module.exports = router;
