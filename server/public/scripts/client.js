@@ -21,26 +21,25 @@ $(document).ready(function(){
 });//end DocumentReady
 
 function sendAddition(){
-    console.log('submit addition numbers');    
     $.ajax ({
        method: "POST",
        url: '/math/addition',
-       data: {number_one:$('#number1').val(), number_two:
-            $('#number2').val()},
+       data: {numbers:[$('#numberOne').val(), $('#numberTwo').val()]},
         success: function(response){
-            console.log(response);
+            console.log('the numbers go here', response);
             //placeholder for append to DOM***
             getAddition();
         }
    })
-}//end sendAddition
+}//end sendAddition to server
 
-function getAddition(){
+function getAddition(){ //takes array and puts it on client consola
     $.ajax({
         method: 'GET',
         url: '/math/addition',
         success:  function(response){
-            console.log(response);
+            console.log('testing tester',response);
+            $('body').append('<h1>' + response + '</h1>');
         }
     })
 }
