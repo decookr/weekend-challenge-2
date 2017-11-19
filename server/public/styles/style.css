@@ -1,0 +1,37 @@
+input[type=text] {
+    border: 2px solid rgb(6, 189, 189);
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+input[type=text]:focus {
+    border: 3px solid rgb(235, 186, 112);
+}
+
+body {
+    background-color: rgb(32, 39, 39);
+    color: white;
+    font-family: Optima, sans-serif
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+button {
+    border: 2px solid rgb(170, 184, 184);
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 20px;
+    background-color: rgb(6, 189, 189);
+    margin: 5px
+}
+
+button:hover {
+    background-color: rgb(235, 186, 112)
+}

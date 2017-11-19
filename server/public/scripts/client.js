@@ -17,23 +17,10 @@ function sendAddition(){
        data: {numbers:[$('#numberOne').val(), $('#numberTwo').val()]},
         success: function(response){
             console.log('the numbers go here', response);
-            //placeholder for append to DOM***
             getMath();
         }
    })
 }//end sendAddition to server
-
-
-function getMath(){ //takes array and puts it on client consola
-    $.ajax({
-        method: 'GET',
-        url: '/math/addition',
-        success:  function(response){
-            console.log('testing tester',response);
-            $('body').append('<h1>' + response + '</h1>');
-        }
-    })
-}
 
 function sendSubtraction(){
     $.ajax ({
@@ -42,11 +29,10 @@ function sendSubtraction(){
        data: {numbers:[$('#numberOne').val(), $('#numberTwo').val()]},
         success: function(response){
             console.log('the numbers go here', response);
-            //placeholder for append to DOM***
             getMath();
         }
    })
-}//end sendAddition to server
+}//end sendSubraction to server
 
 function sendMultiplication(){
     $.ajax ({
@@ -55,11 +41,10 @@ function sendMultiplication(){
        data: {numbers:[$('#numberOne').val(), $('#numberTwo').val()]},
         success: function(response){
             console.log('the numbers go here', response);
-            //placeholder for append to DOM***
             getMath();
         }
    })
-}//end sendAddition to server
+}//end sendMultiplication to server
 
 function sendDivision(){
     $.ajax ({
@@ -68,8 +53,19 @@ function sendDivision(){
        data: {numbers:[$('#numberOne').val(), $('#numberTwo').val()]},
         success: function(response){
             console.log('the numbers go here', response);
-            //placeholder for append to DOM***
             getMath();
         }
    })
-}//end sendAddition to server
+}//end sendDivision to server
+
+function getMath(){ //takes array and puts it on client consola
+    $.ajax({
+        method: 'GET',
+        url: '/math/addition',
+        success:  function(response){
+            console.log('testing tester',response);
+            $('div').append('<h3>Your calculation is:  ' + response + '</h3>');
+            $('input').val('');            
+        }
+    })
+}//end getMath
