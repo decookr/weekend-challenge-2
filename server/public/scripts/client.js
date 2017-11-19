@@ -2,12 +2,11 @@ console.log('JS loaded');
 
 $(document).ready(function(){
     console.log('JQ loaded');
-    
    $('body').on('click', '#addition', sendAddition);
    $('body').on('click', '#subtraction', sendSubtraction);
    $('body').on('click', '#multiplication', sendMultiplication);
    $('body').on('click', '#division', sendDivision);
-
+   $('body').on('click', '#clear', clearData);
 });//end DocumentReady
 
 function sendAddition(){
@@ -58,14 +57,18 @@ function sendDivision(){
    })
 }//end sendDivision to server
 
-function getMath(){ //takes array and puts it on client consola
+function getMath(){ //takes array from server and puts it on client
     $.ajax({
         method: 'GET',
         url: '/math/addition',
         success:  function(response){
-            console.log('testing tester',response);
+            console.log('the math should show up here',response);
             $('div').append('<h3>Your calculation is:  ' + response + '</h3>');
             $('input').val('');            
         }
     })
 }//end getMath
+
+function clearData(){
+    $('div').empty();
+}//end clearData

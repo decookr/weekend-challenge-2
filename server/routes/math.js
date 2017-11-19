@@ -36,5 +36,4 @@ router.get('/addition', function(req,res){
     res.send(addedNumbers);
 })
 
-
 module.exports = router;
